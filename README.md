@@ -26,7 +26,7 @@ cover
 })
 ```
 ===
-```
+```js
 // Only use node_redis
 redis_client.set('mycover:test1:key1', 'value1', (err, res) => {
   if(err) {
@@ -42,28 +42,28 @@ redis_client.set('mycover:test1:key1', 'value1', (err, res) => {
 ### Basic
 
 * Generate key
-```
+```js
 cover.mycover.test1.key1...
 ```
 
 * Excute command
-```
+```js
 cover.mycover.test1.key1.set('value1', cb)
 ```
 ===
-```
+```js
 // as same as in node_redis
 redis_client.set('mycover:test1:key1', 'value1', cb)
 ```
 
 * Promise
-```
+```js
 cover.aaa.bbb.ccc.set('value').then(cb).catch(err => {})
 ```
 
 ### Serial
 It will break when error happened, just like ```Promise()```
-```
+```js
 cover
 .serial()
 .mycover.test2.key1.set('value1')
@@ -77,7 +77,7 @@ cover
 
 ### Pipeline
 It will excute all commands no matter whether there is a error, just like ```Promise.all```
-```
+```js
 cover
 .pipeline()
 .mycover.test3.key1.set('value1')
@@ -92,7 +92,7 @@ cover
 
 ### Multi
 If any command fails to queue, all commands are rolled back and none is going to be executed.
-```
+```js
 cover
 .multi()
 .mycover.test4.key1.set('value1')
@@ -106,7 +106,7 @@ cover
 ### Lowercase/Uppercase command in Serial/pipeline/multi
 
 * Lowercase command will return root node
-```
+```js
 cover
 .multi()
 .mycover.test5.key1.sadd('value1')
@@ -117,7 +117,7 @@ cover
 })
 ```
 ===
-```
+```js
 // as same as in node_redis
 redis_client
 .multi()
@@ -127,7 +127,7 @@ redis_client
 ```
 
 * Uppercase Command will return current target
-```
+```js
 cover
 .multi()
 .mycover.test5.key1.SADD('value1').SADD('value2').subkey1.set('value3')
@@ -138,7 +138,7 @@ cover
 })
 ```
 ===
-```
+```js
 // as same as in node_redis
 redis_client
 .multi()
