@@ -148,3 +148,11 @@ redis_client
 .set('mycover:test5:key2', 'value2')
 .exec()
 ```
+
+### Separator
+Default is `:`
+```
+const rediscover = require('../index')
+const cover = new rediscover(redis_client)
+cover.SEPARATOR = '.'
+```
