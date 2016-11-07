@@ -52,6 +52,7 @@ cover.mycover.test1.key1.set('value1', cb)
 ```
 ===
 ```
+// as same as in node_redis
 redis_client.set('mycover:test1:key1', 'value1', cb)
 ```
 
@@ -117,6 +118,7 @@ cover
 ```
 ===
 ```
+// as same as in node_redis
 redis_client
 .multi()
 .sadd('mycover:test5:key1', 'value1')
@@ -137,6 +139,7 @@ cover
 ```
 ===
 ```
+// as same as in node_redis
 redis_client
 .multi()
 .sadd('mycover:test5:key1', 'value1')
