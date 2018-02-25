@@ -15,7 +15,7 @@ const redis_client = redis.createClient()
 const rediscover = require('../index')
 const cover = new rediscover(redis_client)
 
-// use node-cover
+// use redis-cover
 cover
 .mycover.test1.key1.set('value1')
 .then(res => {
@@ -27,7 +27,7 @@ cover
 ```
 ===
 ```js
-// Only use node_redis
+// Only use redis
 redis_client.set('mycover:test1:key1', 'value1', (err, res) => {
   if(err) {
     console.log('Test1', err)
